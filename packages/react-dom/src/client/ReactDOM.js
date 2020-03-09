@@ -566,10 +566,10 @@ function legacyRenderSubtreeIntoContainer(
   // member of intersection type." Whyyyyyy.
   // 一开始进来 container 上是肯定没有这个属性的
   let root: Root = (container._reactRootContainer: any);
-  // 没有 root 会执行 if 中的操作
+  // 没有 root 会执行 if 中的操作 （第一次渲染）
   if (!root) {
     // Initial mount
-    // 创建一个 root 出来，类型是 ReactRoot
+    // 创建一个 root 出来，类型是 ReactRoot ，reactRoot._internalRoot 是 FiberRoot
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,
